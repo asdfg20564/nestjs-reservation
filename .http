@@ -1,0 +1,93 @@
+@host= http://localhost:3000
+
+###signup
+POST {{host}}/api/users/signup
+
+Content-Type: application/json
+{
+  "username" : "happy",
+  "email" : "happy@naver.com",
+  "password" : "1234",
+  "confirmPassword" : "1234"
+}
+
+
+###login
+POST {{host}}/api/users/login
+
+Content-Type: application/json
+{
+  "email" : "happy@naver.com",
+  "password" : "1234"
+}
+
+###mypage
+GET {{host}}/api/users/mypage
+
+###information patch
+PATCH {{host}}/api/users/mypage
+{
+  "password" : "1234",
+  "comment": "안녕하세요."
+}
+
+###performance create
+POST {{host}}/api/users/performance
+
+Content-Type: application/json
+{
+  "title" : "지킬앤하이드",
+  "content" : "지금 이 순간",
+  "date" : [2024,1,1,12,30],
+  "place" : "서울시",
+  "category": "뮤지컬",
+  "price" : 35000,
+  "seat" : 300
+}
+
+###performance create 2
+POST {{host}}/api/performance
+
+Content-Type: application/json
+{
+  "title" : "레 미제라블",
+  "content" : "민중의 노래",
+  "date" : [2024,1,1,12,30],
+  "place" : "서울시",
+  "category": "뮤지컬",
+  "price" : 30000,
+  "seat" : 200
+}
+
+###performance get all
+GET {{host}}/api/performance
+
+###performance get one
+GET {{host}}/api/performance/1
+
+###performance search by name
+GET {{host}}/api/performance?name=지킬앤하이드
+
+
+###reservation
+POST {{host}}/api/reservation
+
+Content-Type: application/json
+{
+  "performanceId": 1,
+  "seat_number": 1
+}
+
+###reservation without seat selected
+POST {{host}}/api/reservation
+
+Content-Type: application/json
+{
+  "performanceId": 1
+}
+
+###reservation get all
+GET {{host}}/api/reservation
+
+###reservation get one
+GET {{host}}/api/reservation/1
