@@ -1,3 +1,17 @@
+공연 예매 서비스 제작
+구현 언어 : TypeScript + Nest.js + TypeORM
+
+ERD : https://dbdiagram.io/d/658bb04289dea6279997f2b9
+
+API : .http 파일 참고
+
+.env 파일
+DB_HOST
+DB_USER
+DB_PASSWORD
+DB_PORT
+TOKEN_KEY
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
