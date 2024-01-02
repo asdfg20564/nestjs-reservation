@@ -16,31 +16,31 @@ export class Performance {
   id: number;
 
   @IsString()
-  @Column('varchar', { length: 50, nullable: false })
+  @Column({ type: 'varchar', length: 50, nullable: false })
   title: string;
 
   @IsString()
-  @Column('varchar', { length: 500, nullable: false })
+  @Column({ type: 'varchar', length: 500, nullable: false })
   content: string;
 
   @IsDate()
-  @Column('timestamp')
+  @Column({ type:'timestamp'})
   performance_date: Date;
 
   @IsString()
-  @Column('varchar', { length: 50 })
+  @Column({ type: 'varchar', length: 50 })
   performance_place: string;
 
   @IsString()
-  @Column('varchar', { length: 50 })
+  @Column({ type: 'varchar', length: 50 })
   category: string;
 
   @IsNumber()
-  @Column('int', { nullable: false })
+  @Column({ type: 'int', nullable: false })
   price: number;
 
   @IsNumber()
-  @Column('int', { nullable: false })
+  @Column({ type: 'int', nullable: false })
   remain_seat: number;
 
   @CreateDateColumn()

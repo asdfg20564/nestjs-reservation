@@ -7,8 +7,10 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Performance } from './performance/entities/performance.entity';
+import { User } from './user/entities/user.entity';
 import { PerformanceModule } from './performance/performance.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 
 const typeOrmModuleOptions = {
@@ -21,7 +23,7 @@ const typeOrmModuleOptions = {
     username: configService.get('DB_USERNAME'),
     password: configService.get('DB_PASSWORD'),
     database: configService.get('DB_NAME'),
-    entities: [Performance],
+    entities: [Performance, User],
     synchronize: configService.get('DB_SYNC'),
     logging: true,
   }),
@@ -44,6 +46,7 @@ const typeOrmModuleOptions = {
     TypeOrmModule.forRootAsync(typeOrmModuleOptions),
     PerformanceModule,
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
