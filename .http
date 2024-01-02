@@ -1,7 +1,7 @@
 @host= http://localhost:3000
 
 ###signup
-POST {{host}}/api/users/signup
+POST {{host}}/users/signup
 
 Content-Type: application/json
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 
 
 ###login
-POST {{host}}/api/users/login
+POST {{host}}/users/login
 
 Content-Type: application/json
 {
@@ -22,55 +22,55 @@ Content-Type: application/json
 }
 
 ###mypage
-GET {{host}}/api/users/mypage
+GET {{host}}/users/mypage
 
 ###information patch
-PATCH {{host}}/api/users/mypage
+PATCH {{host}}/users/mypage
 {
   "password" : "1234",
   "comment": "안녕하세요."
 }
 
 ###performance create
-POST {{host}}/api/users/performance
+POST {{host}}/performance
 
 Content-Type: application/json
 {
   "title" : "지킬앤하이드",
   "content" : "지금 이 순간",
-  "date" : [2024,1,1,12,30],
-  "place" : "서울시",
+  "performance_date" : ["2024-01-02T12:30:00.000Z"],
+  "performance_place" : "서울시",
   "category": "뮤지컬",
   "price" : 35000,
-  "seat" : 300
+  "remain_seat" : 300
 }
 
 ###performance create 2
-POST {{host}}/api/performance
+POST {{host}}/performance
 
 Content-Type: application/json
 {
   "title" : "레 미제라블",
   "content" : "민중의 노래",
-  "date" : [2024,1,1,12,30],
-  "place" : "서울시",
+  "performance_date" : ["2024-01-12T12:30:00.000Z"],
+  "performance_place" : "서울시",
   "category": "뮤지컬",
   "price" : 30000,
-  "seat" : 200
+  "remain_seat" : 200
 }
 
 ###performance get all
-GET {{host}}/api/performance
+GET {{host}}/performance
 
 ###performance get one
-GET {{host}}/api/performance/1
+GET {{host}}/performance/1
 
 ###performance search by name
-GET {{host}}/api/performance?name=지킬앤하이드
+GET {{host}}/performance?name=지킬앤하이드
 
 
 ###reservation
-POST {{host}}/api/reservation
+POST {{host}}/reservation
 
 Content-Type: application/json
 {
@@ -79,7 +79,7 @@ Content-Type: application/json
 }
 
 ###reservation without seat selected
-POST {{host}}/api/reservation
+POST {{host}}/reservation
 
 Content-Type: application/json
 {
@@ -87,7 +87,7 @@ Content-Type: application/json
 }
 
 ###reservation get all
-GET {{host}}/api/reservation
+GET {{host}}/reservation
 
 ###reservation get one
-GET {{host}}/api/reservation/1
+GET {{host}}/reservation/1
