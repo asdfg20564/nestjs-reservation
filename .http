@@ -1,19 +1,18 @@
 @host= http://localhost:3000
 
 ###signup
-POST {{host}}/users/signup
+POST {{host}}/user/signup
 
 Content-Type: application/json
 {
   "username" : "happy",
   "email" : "happy@naver.com",
-  "password" : "1234",
-  "confirmPassword" : "1234"
+  "password" : "1234"
 }
 
 
 ###login
-POST {{host}}/users/login
+POST {{host}}/user/login
 
 Content-Type: application/json
 {
@@ -22,10 +21,10 @@ Content-Type: application/json
 }
 
 ###mypage
-GET {{host}}/users/mypage
+GET {{host}}/user/check
 
 ###information patch
-PATCH {{host}}/users/mypage
+PATCH {{host}}/user/mypage
 {
   "password" : "1234",
   "comment": "안녕하세요."
