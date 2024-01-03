@@ -7,7 +7,10 @@ import {
   Index,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToMany
 } from 'typeorm';
+import { Reservation } from 'src/reservation/entities/reservation.entity';
+import { Role } from '../types/userRole.type';
 
 @Index('email', ['email'], { unique: true })
 @Entity({
@@ -32,13 +35,15 @@ export class User {
   @Column({ type: 'varchar', default:"hello!"})
   comment: string;
 
-  @IsNumber()
-  @Column({ type: 'int', default: 0 })
-  is_admin: number;
+  @Column({ type: 'enum', enum: Role, default: Role.User })
+  is_admin: Role;
 
   @IsNumber()
   @Column({ type: 'int', default: 1000000 })
   point: number;
+
+  @OneToMany(()=>Reservation, (reservation)=> reservation.user)
+  reservations: Reservation[];
 
   @CreateDateColumn()
   createdAt: Date;

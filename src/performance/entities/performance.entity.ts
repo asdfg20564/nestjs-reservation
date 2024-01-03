@@ -6,7 +6,9 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToMany
 } from 'typeorm';
+import { Reservation } from 'src/reservation/entities/reservation.entity';
 
 @Entity({
   name: 'performances',
@@ -42,6 +44,9 @@ export class Performance {
   @IsNumber()
   @Column({ type: 'int', nullable: false })
   remain_seat: number;
+
+  @OneToMany(()=>Reservation, (reservation)=>reservation.performance)
+  reservations: Reservation[];
 
   @CreateDateColumn()
   createdAt: Date;
